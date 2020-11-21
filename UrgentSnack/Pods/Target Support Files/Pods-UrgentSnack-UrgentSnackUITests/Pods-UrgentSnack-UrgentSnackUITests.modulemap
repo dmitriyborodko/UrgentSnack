@@ -1,0 +1,6 @@
+framework module Pods_UrgentSnack_UrgentSnackUITests {
+  umbrella header "Pods-UrgentSnack-UrgentSnackUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
