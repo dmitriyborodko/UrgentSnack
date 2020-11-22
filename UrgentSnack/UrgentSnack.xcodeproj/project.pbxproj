@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0365338A249C66E2B65E0057 /* Pods_UrgentSnack_UrgentSnackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D822B63C185FAF6D742E9049 /* Pods_UrgentSnack_UrgentSnackUITests.framework */; };
+		0B9EEC4C256A892E00CB78D7 /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EEC4B256A892E00CB78D7 /* GeolocationService.swift */; };
 		0BE1EE4B25695CF400951A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE4A25695CF400951A92 /* AppDelegate.swift */; };
 		0BE1EE4D25695CF400951A92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE4C25695CF400951A92 /* SceneDelegate.swift */; };
-		0BE1EE4F25695CF400951A92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE4E25695CF400951A92 /* ViewController.swift */; };
-		0BE1EE5225695CF400951A92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE1EE5025695CF400951A92 /* Main.storyboard */; };
 		0BE1EE5425695CF700951A92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BE1EE5325695CF700951A92 /* Assets.xcassets */; };
 		0BE1EE5725695CF700951A92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BE1EE5525695CF700951A92 /* LaunchScreen.storyboard */; };
 		0BE1EE6225695CF700951A92 /* UrgentSnackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE6125695CF700951A92 /* UrgentSnackTests.swift */; };
 		0BE1EE6D25695CF700951A92 /* UrgentSnackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE6C25695CF700951A92 /* UrgentSnackUITests.swift */; };
+		0BE1EE872569938600951A92 /* VenueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE862569938600951A92 /* VenueCoordinator.swift */; };
+		0BE1EE962569A01500951A92 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE952569A01500951A92 /* MapViewController.swift */; };
 		6E11089D28F895BE2E287A70 /* Pods_UrgentSnackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D85F7D837150AF0D88AFBF /* Pods_UrgentSnackTests.framework */; };
 		8A2B02D09B8BAD2DA1AEE83B /* Pods_UrgentSnack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F746EA18869C047AD66291 /* Pods_UrgentSnack.framework */; };
 /* End PBXBuildFile section */
@@ -39,11 +40,10 @@
 
 /* Begin PBXFileReference section */
 		0741691E44F6B358F0899BCE /* Pods-UrgentSnackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UrgentSnackTests.release.xcconfig"; path = "Target Support Files/Pods-UrgentSnackTests/Pods-UrgentSnackTests.release.xcconfig"; sourceTree = "<group>"; };
+		0B9EEC4B256A892E00CB78D7 /* GeolocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
 		0BE1EE4725695CF400951A92 /* UrgentSnack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrgentSnack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE1EE4A25695CF400951A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BE1EE4C25695CF400951A92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0BE1EE4E25695CF400951A92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0BE1EE5125695CF400951A92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0BE1EE5325695CF700951A92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BE1EE5625695CF700951A92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BE1EE5825695CF700951A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +53,8 @@
 		0BE1EE6825695CF700951A92 /* UrgentSnackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrgentSnackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE1EE6C25695CF700951A92 /* UrgentSnackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrgentSnackUITests.swift; sourceTree = "<group>"; };
 		0BE1EE6E25695CF700951A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BE1EE862569938600951A92 /* VenueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCoordinator.swift; sourceTree = "<group>"; };
+		0BE1EE952569A01500951A92 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		11F746EA18869C047AD66291 /* Pods_UrgentSnack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UrgentSnack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D85F7D837150AF0D88AFBF /* Pods_UrgentSnackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UrgentSnackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B79B9E8A0B3431144F4D3A7 /* Pods-UrgentSnack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UrgentSnack.debug.xcconfig"; path = "Target Support Files/Pods-UrgentSnack/Pods-UrgentSnack.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B9EEC4A256A892000CB78D7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0B9EEC4B256A892E00CB78D7 /* GeolocationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		0BE1EE3E25695CF400951A92 = {
 			isa = PBXGroup;
 			children = (
@@ -116,13 +126,10 @@
 		0BE1EE4925695CF400951A92 /* UrgentSnack */ = {
 			isa = PBXGroup;
 			children = (
-				0BE1EE4A25695CF400951A92 /* AppDelegate.swift */,
-				0BE1EE4C25695CF400951A92 /* SceneDelegate.swift */,
-				0BE1EE4E25695CF400951A92 /* ViewController.swift */,
-				0BE1EE5025695CF400951A92 /* Main.storyboard */,
-				0BE1EE5325695CF700951A92 /* Assets.xcassets */,
-				0BE1EE5525695CF700951A92 /* LaunchScreen.storyboard */,
-				0BE1EE5825695CF700951A92 /* Info.plist */,
+				0B9EEC4A256A892000CB78D7 /* Services */,
+				0BE1EE8B25699E1300951A92 /* App */,
+				0BE1EE862569938600951A92 /* VenueCoordinator.swift */,
+				0BE1EE952569A01500951A92 /* MapViewController.swift */,
 			);
 			path = UrgentSnack;
 			sourceTree = "<group>";
@@ -145,6 +152,18 @@
 			path = UrgentSnackUITests;
 			sourceTree = "<group>";
 		};
+		0BE1EE8B25699E1300951A92 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0BE1EE5825695CF700951A92 /* Info.plist */,
+				0BE1EE5325695CF700951A92 /* Assets.xcassets */,
+				0BE1EE5525695CF700951A92 /* LaunchScreen.storyboard */,
+				0BE1EE4A25695CF400951A92 /* AppDelegate.swift */,
+				0BE1EE4C25695CF400951A92 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		3383A388DB20D2644F8193EE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +174,6 @@
 				90D00093495EDBAAF4C1A19A /* Pods-UrgentSnackTests.debug.xcconfig */,
 				0741691E44F6B358F0899BCE /* Pods-UrgentSnackTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -277,7 +295,6 @@
 			files = (
 				0BE1EE5725695CF700951A92 /* LaunchScreen.storyboard in Resources */,
 				0BE1EE5425695CF700951A92 /* Assets.xcassets in Resources */,
-				0BE1EE5225695CF400951A92 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,8 +388,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BE1EE4F25695CF400951A92 /* ViewController.swift in Sources */,
+				0B9EEC4C256A892E00CB78D7 /* GeolocationService.swift in Sources */,
+				0BE1EE872569938600951A92 /* VenueCoordinator.swift in Sources */,
 				0BE1EE4B25695CF400951A92 /* AppDelegate.swift in Sources */,
+				0BE1EE962569A01500951A92 /* MapViewController.swift in Sources */,
 				0BE1EE4D25695CF400951A92 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,14 +428,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0BE1EE5025695CF400951A92 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0BE1EE5125695CF400951A92 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0BE1EE5525695CF700951A92 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -552,7 +563,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LDHA8H5QT;
-				INFOPLIST_FILE = UrgentSnack/Info.plist;
+				INFOPLIST_FILE = UrgentSnack/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,7 +583,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8LDHA8H5QT;
-				INFOPLIST_FILE = UrgentSnack/Info.plist;
+				INFOPLIST_FILE = UrgentSnack/App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

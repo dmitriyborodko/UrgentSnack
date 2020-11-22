@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  UrgentSnack
-//
-//  Created by Dmitrii Borodko on 11/21/20.
-//
-
 import UIKit
 
 @main
