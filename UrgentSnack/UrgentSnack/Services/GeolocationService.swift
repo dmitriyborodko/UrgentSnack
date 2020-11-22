@@ -9,11 +9,13 @@ class DefaultGeolocationService: NSObject {
 
     // MARK: - Instance Properties
 
-    private var locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
 
     // MARK: - Initializers
 
     override init() {
+        super.init()
+        
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
     }

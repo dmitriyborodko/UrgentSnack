@@ -1,4 +1,4 @@
-framework module Pods_UrgentSnack {
+module Pods_UrgentSnack {
   umbrella header "Pods-UrgentSnack-umbrella.h"
 
   export *

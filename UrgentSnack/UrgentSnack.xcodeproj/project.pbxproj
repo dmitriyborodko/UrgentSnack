@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0365338A249C66E2B65E0057 /* Pods_UrgentSnack_UrgentSnackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D822B63C185FAF6D742E9049 /* Pods_UrgentSnack_UrgentSnackUITests.framework */; };
 		0B9EEC4C256A892E00CB78D7 /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EEC4B256A892E00CB78D7 /* GeolocationService.swift */; };
 		0BE1EE4B25695CF400951A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE4A25695CF400951A92 /* AppDelegate.swift */; };
 		0BE1EE4D25695CF400951A92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE4C25695CF400951A92 /* SceneDelegate.swift */; };
@@ -17,8 +16,7 @@
 		0BE1EE6D25695CF700951A92 /* UrgentSnackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE6C25695CF700951A92 /* UrgentSnackUITests.swift */; };
 		0BE1EE872569938600951A92 /* VenueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE862569938600951A92 /* VenueCoordinator.swift */; };
 		0BE1EE962569A01500951A92 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE952569A01500951A92 /* MapViewController.swift */; };
-		6E11089D28F895BE2E287A70 /* Pods_UrgentSnackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D85F7D837150AF0D88AFBF /* Pods_UrgentSnackTests.framework */; };
-		8A2B02D09B8BAD2DA1AEE83B /* Pods_UrgentSnack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F746EA18869C047AD66291 /* Pods_UrgentSnack.framework */; };
+		3ABAD7E81DA4FB24D1017635 /* libPods-UrgentSnack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1ACE83E50953E85D2B59463 /* libPods-UrgentSnack.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0741691E44F6B358F0899BCE /* Pods-UrgentSnackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UrgentSnackTests.release.xcconfig"; path = "Target Support Files/Pods-UrgentSnackTests/Pods-UrgentSnackTests.release.xcconfig"; sourceTree = "<group>"; };
 		0B9EEC4B256A892E00CB78D7 /* GeolocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
 		0BE1EE4725695CF400951A92 /* UrgentSnack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrgentSnack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE1EE4A25695CF400951A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,13 +52,8 @@
 		0BE1EE6E25695CF700951A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BE1EE862569938600951A92 /* VenueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCoordinator.swift; sourceTree = "<group>"; };
 		0BE1EE952569A01500951A92 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		11F746EA18869C047AD66291 /* Pods_UrgentSnack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UrgentSnack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		20D85F7D837150AF0D88AFBF /* Pods_UrgentSnackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UrgentSnackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B79B9E8A0B3431144F4D3A7 /* Pods-UrgentSnack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UrgentSnack.debug.xcconfig"; path = "Target Support Files/Pods-UrgentSnack/Pods-UrgentSnack.debug.xcconfig"; sourceTree = "<group>"; };
-		90D00093495EDBAAF4C1A19A /* Pods-UrgentSnackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UrgentSnackTests.debug.xcconfig"; path = "Target Support Files/Pods-UrgentSnackTests/Pods-UrgentSnackTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9C311BC37A71A9E296C995E9 /* Pods-UrgentSnack-UrgentSnackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UrgentSnack-UrgentSnackUITests.release.xcconfig"; path = "Target Support Files/Pods-UrgentSnack-UrgentSnackUITests/Pods-UrgentSnack-UrgentSnackUITests.release.xcconfig"; sourceTree = "<group>"; };
-		D822B63C185FAF6D742E9049 /* Pods_UrgentSnack_UrgentSnackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UrgentSnack_UrgentSnackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D84A06007CF1C73A93856AE2 /* Pods-UrgentSnack-UrgentSnackUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UrgentSnack-UrgentSnackUITests.debug.xcconfig"; path = "Target Support Files/Pods-UrgentSnack-UrgentSnackUITests/Pods-UrgentSnack-UrgentSnackUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E1ACE83E50953E85D2B59463 /* libPods-UrgentSnack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UrgentSnack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC041A88D6520E6A90AE52BD /* Pods-UrgentSnack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UrgentSnack.release.xcconfig"; path = "Target Support Files/Pods-UrgentSnack/Pods-UrgentSnack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A2B02D09B8BAD2DA1AEE83B /* Pods_UrgentSnack.framework in Frameworks */,
+				3ABAD7E81DA4FB24D1017635 /* libPods-UrgentSnack.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E11089D28F895BE2E287A70 /* Pods_UrgentSnackTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0365338A249C66E2B65E0057 /* Pods_UrgentSnack_UrgentSnackUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,10 +159,6 @@
 			children = (
 				5B79B9E8A0B3431144F4D3A7 /* Pods-UrgentSnack.debug.xcconfig */,
 				EC041A88D6520E6A90AE52BD /* Pods-UrgentSnack.release.xcconfig */,
-				D84A06007CF1C73A93856AE2 /* Pods-UrgentSnack-UrgentSnackUITests.debug.xcconfig */,
-				9C311BC37A71A9E296C995E9 /* Pods-UrgentSnack-UrgentSnackUITests.release.xcconfig */,
-				90D00093495EDBAAF4C1A19A /* Pods-UrgentSnackTests.debug.xcconfig */,
-				0741691E44F6B358F0899BCE /* Pods-UrgentSnackTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -180,9 +166,7 @@
 		EC215A017AF73C945C8ECE43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				11F746EA18869C047AD66291 /* Pods_UrgentSnack.framework */,
-				D822B63C185FAF6D742E9049 /* Pods_UrgentSnack_UrgentSnackUITests.framework */,
-				20D85F7D837150AF0D88AFBF /* Pods_UrgentSnackTests.framework */,
+				E1ACE83E50953E85D2B59463 /* libPods-UrgentSnack.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -212,7 +196,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BE1EE7425695CF700951A92 /* Build configuration list for PBXNativeTarget "UrgentSnackTests" */;
 			buildPhases = (
-				E5865347ACEBE4D02A269E3A /* [CP] Check Pods Manifest.lock */,
 				0BE1EE5925695CF700951A92 /* Sources */,
 				0BE1EE5A25695CF700951A92 /* Frameworks */,
 				0BE1EE5B25695CF700951A92 /* Resources */,
@@ -231,7 +214,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BE1EE7725695CF700951A92 /* Build configuration list for PBXNativeTarget "UrgentSnackUITests" */;
 			buildPhases = (
-				C4115A67B0884F8ABCBA8729 /* [CP] Check Pods Manifest.lock */,
 				0BE1EE6425695CF700951A92 /* Sources */,
 				0BE1EE6525695CF700951A92 /* Frameworks */,
 				0BE1EE6625695CF700951A92 /* Resources */,
@@ -315,50 +297,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C4115A67B0884F8ABCBA8729 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UrgentSnack-UrgentSnackUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E5865347ACEBE4D02A269E3A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UrgentSnackTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EA0C8C951596B61CD7B0A285 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -597,7 +535,6 @@
 		};
 		0BE1EE7525695CF700951A92 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90D00093495EDBAAF4C1A19A /* Pods-UrgentSnackTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -620,7 +557,6 @@
 		};
 		0BE1EE7625695CF700951A92 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0741691E44F6B358F0899BCE /* Pods-UrgentSnackTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -643,7 +579,6 @@
 		};
 		0BE1EE7825695CF700951A92 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D84A06007CF1C73A93856AE2 /* Pods-UrgentSnack-UrgentSnackUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -664,7 +599,6 @@
 		};
 		0BE1EE7925695CF700951A92 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C311BC37A71A9E296C995E9 /* Pods-UrgentSnack-UrgentSnackUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
