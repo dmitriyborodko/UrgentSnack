@@ -1,11 +1,19 @@
 import Foundation
 import CoreLocation
+import RxSwift
 
 protocol GeolocationService {
-    func authorize()
+    func authorize() -> Observable<Void>
+//    func getUserLocation() -> Observable<CLLocation>
 }
 
-class DefaultGeolocationService: NSObject {
+enum GeolocationError: Error {
+
+}
+
+// MARK: - Default Implementation
+
+class DefaultGeolocationService: NSObject, GeolocationService {
 
     // MARK: - Instance Properties
 
@@ -15,11 +23,23 @@ class DefaultGeolocationService: NSObject {
 
     override init() {
         super.init()
-        
+
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
     }
+
+    // MARK: - Instance Methods
+
+    func authorize() -> Observable<Void> {
+        return Observable<Void>.just(())
+    }
+
+//    func getUserLocation() -> Observable<CLLocation> {
+//        return Observable<Void>
+//    }
 }
+
+// MARK: - CLLocationManagerDelegate
 
 extension DefaultGeolocationService: CLLocationManagerDelegate {
 

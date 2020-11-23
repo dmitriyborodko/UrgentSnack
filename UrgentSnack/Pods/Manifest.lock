@@ -1,26 +1,40 @@
 PODS:
-  - RxCocoa (6.0.0-rc.2):
-    - RxRelay (= 6.0.0-rc.2)
-    - RxSwift (= 6.0.0-rc.2)
-  - RxRelay (6.0.0-rc.2):
-    - RxSwift (= 6.0.0-rc.2)
-  - RxSwift (6.0.0-rc.2)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxCoreLocation (1.5.0):
+    - RxCoreLocation/Core (= 1.5.0)
+  - RxCoreLocation/Core (1.5.0):
+    - RxCocoa (~> 5.1)
+    - RxSwift (~> 5.1)
+  - RxMKMapView (5.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
 
 DEPENDENCIES:
-  - RxCocoa (= 6.0.0-rc.2)
-  - RxSwift (= 6.0.0-rc.2)
+  - RxCocoa
+  - RxCoreLocation
+  - RxMKMapView
+  - RxSwift
 
 SPEC REPOS:
   trunk:
     - RxCocoa
+    - RxCoreLocation
+    - RxMKMapView
     - RxRelay
     - RxSwift
 
 SPEC CHECKSUMS:
-  RxCocoa: 38445a25751be5907f52f7ea02c137f52ce2e7f2
-  RxRelay: b9e2483e83f46e4e7bf1234c6fe418e5c2eaf825
-  RxSwift: ada35be6643bedf6881cdbd6bbfb27aeea527670
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxCoreLocation: 4789d980742b21c087062387f6758b456221fb2f
+  RxMKMapView: 7b19fc545887314851ea67b12193bc8c6004dcb5
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: 2d9eca66ab5837535a1a42af419a39f74f269edc
+PODFILE CHECKSUM: 79d3a5953500d425f245c9e0221aabaa6f3f8acd
 
 COCOAPODS: 1.8.4
