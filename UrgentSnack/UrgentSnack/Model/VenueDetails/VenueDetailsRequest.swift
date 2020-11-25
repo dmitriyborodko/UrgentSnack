@@ -1,16 +1,9 @@
 import Foundation
 
 struct VenueDetailsRequest: FourSquareRequest {
-
-    // MARK: - Nestted Types
-    
     typealias Output = VenueDetails
 
-    // MARK: - Instance Properties
-
     var id: String
-
-    // MARK: - Instance Methods
 
     func prepare(context: FourSquareContext) throws -> URLRequest {
         try context.baseURL

@@ -1,19 +1,11 @@
-import Foundation
 import UIKit
 
 struct VenueListRequest: FourSquareRequest {
-
-    // MARK: - Nestted Types
-
     typealias Output = [Venue]
-
-    // MARK: - Instance Properties
 
     var latitude: Double
     var longitude: Double
     var radius: Double
-
-    // MARK: - Instance Methods
 
     func prepare(context: FourSquareContext) throws -> URLRequest {
         try context.baseURL

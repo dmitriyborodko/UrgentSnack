@@ -2,9 +2,6 @@ import Foundation
 import CoreLocation
 
 struct Venue: Decodable {
-
-    // MARK: - Nested Types
-
     private enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -20,8 +17,6 @@ struct Venue: Decodable {
         let latitude: Double
         let longitude: Double
     }
-
-    // MARK: - Instance Properties
     
     var id: String
     var name: String

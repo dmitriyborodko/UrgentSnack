@@ -3,9 +3,6 @@ import RxSwift
 import CoreLocation
 
 class VenueDetailsService {
-
-    // MARK: - Nested Types
-
     struct Env {
         var loadVenueDetails: (VenueDetailsRequest) -> Observable<VenueDetailsRequest.Output>
         var loadBestPhoto: (BestPhotoRequest) -> Observable<BestPhotoRequest.Output>
@@ -14,16 +11,11 @@ class VenueDetailsService {
         var sendError: (Error) -> Void
     }
 
-    // MARK: - Instance Properties
-
     private let env: Env
     private let venueDetailsNode = PublishSubject<VenueDetails>()
 
-    // MARK: - Initializers
-
     init(env: Env) { self.env = env }
 
-    // MARK: - Instance Methods
     func activate() -> Disposable {
         Observable.of(env.id)
             .map(VenueDetailsRequest.init(id:))

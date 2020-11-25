@@ -3,9 +3,6 @@ import RxSwift
 import CoreLocation
 
 class MapService {
-
-    // MARK: - Nested Types
-
     struct Env {
         var loadVenues: (VenueListRequest) -> Observable<VenueListRequest.Output>
         var serializer: SerialDispatchQueueScheduler
@@ -23,8 +20,6 @@ class MapService {
         var radius: Double
     }
 
-    // MARK: - Instance Properties
-
     var regionSink: (Region) -> Void { regionNode.onNext }
     var sendError: (Error) -> Void { env.sendError }
 
@@ -32,11 +27,7 @@ class MapService {
     private let regionNode: PublishSubject<Region> = .init()
     private var venues: Set<Venue> = .init()
 
-    // MARK: - Initializers
-
     init(env: Env) { self.env = env }
-
-    // MARK: - Instance Methods
 
     func changeRegion(latitude: Double, longitude: Double, radius: Double) {
         regionNode

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B7C7A11256EFEE50053104C /* VenueDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7C7A10256EFEE50053104C /* VenueDetailsResponse.swift */; };
 		0B7C7A16256F00790053104C /* BestPhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7C7A15256F00790053104C /* BestPhotoRequest.swift */; };
+		0B7C7A25256F177F0053104C /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7C7A24256F177F0053104C /* Annotation.swift */; };
 		0B9EEC63256AA33D00CB78D7 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EEC62256AA33D00CB78D7 /* MapService.swift */; };
 		0B9EEC6D256AB19E00CB78D7 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EEC6C256AB19E00CB78D7 /* Venue.swift */; };
 		0B9EEC6E256AB19E00CB78D7 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EEC6C256AB19E00CB78D7 /* Venue.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		0B7C7A10256EFEE50053104C /* VenueDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailsResponse.swift; sourceTree = "<group>"; };
 		0B7C7A15256F00790053104C /* BestPhotoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestPhotoRequest.swift; sourceTree = "<group>"; };
+		0B7C7A24256F177F0053104C /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		0B9EEC62256AA33D00CB78D7 /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		0B9EEC6C256AB19E00CB78D7 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		0B9EEC73256AB1F400CB78D7 /* VenueDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetails.swift; sourceTree = "<group>"; };
@@ -128,10 +130,10 @@
 			isa = PBXGroup;
 			children = (
 				0BD79DA0256E4D950023E664 /* APIService.swift */,
+				0BD79D6B256E4B410023E664 /* FourSquareRequest.swift */,
 				0BD79E6E256EB6350023E664 /* Linker.swift */,
 				0BD79D8D256E4C730023E664 /* VenueDetails */,
 				0BD79D7B256E4BB80023E664 /* VenueList */,
-				0BD79D6B256E4B410023E664 /* FourSquareRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +186,7 @@
 			children = (
 				0BE1EE952569A01500951A92 /* MapViewController.swift */,
 				0BD79E76256EB9AB0023E664 /* VenueAnnotationView.swift */,
+				0B7C7A24256F177F0053104C /* Annotation.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				0BD79E77256EB9AB0023E664 /* VenueAnnotationView.swift in Sources */,
 				0BD79E6A256E756C0023E664 /* VenueDetailsService.swift in Sources */,
 				0BE1EE4D25695CF400951A92 /* SceneDelegate.swift in Sources */,
+				0B7C7A25256F177F0053104C /* Annotation.swift in Sources */,
 				0B7C7A16256F00790053104C /* BestPhotoRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

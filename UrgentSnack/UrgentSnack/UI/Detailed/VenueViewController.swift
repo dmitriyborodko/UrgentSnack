@@ -4,7 +4,6 @@ import RxSwift
 import RxCocoa
 
 final class VenueViewController: UIViewController {
-
     static func make(env: Env) -> VenueViewController {
         let controller = VenueViewController()
         controller.env = env
@@ -15,20 +14,14 @@ final class VenueViewController: UIViewController {
         var detailsService: VenueDetailsService
     }
 
-    // MARK: - Instance Properties
-
     private lazy var imageView: UIImageView = makeImageView()
     private lazy var titleLabel: UILabel = makeTitleLabel()
     private lazy var likesLabel: UILabel = makeLikesLabel()
     private lazy var ratingLabel: UILabel = makeRatingLabel()
-    private lazy var descriptionLabel: UILabel = makeRatingLabel()
+    private lazy var descriptionLabel: UILabel = makeDescriptionLabel()
 
     private var env: Env?
     private let bag = DisposeBag()
-
-    // MARK: - Initializers
-
-    // MARK: - Instance Methods
 
     override func loadView() {
         self.view = UIView()
@@ -71,7 +64,7 @@ final class VenueViewController: UIViewController {
             make.right.equalTo(view.safeAreaLayoutGuide).inset(Constants.viewsEdgeInsets)
         }
         descriptionLabel.snp.makeConstraints { make in
-            make.left.right.equalTo(view.safeAreaLayoutGuide).inset(Constants.viewsEdgeInsets)
+            make.left.right.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.viewsEdgeInsets)
             make.top.equalTo(imageView.snp.bottom).offset(Constants.viewsEdgeInsets.top)
         }
 
@@ -84,15 +77,16 @@ final class VenueViewController: UIViewController {
 
     private func makeImageView() -> UIImageView {
         let imageView = UIImageView()
-        imageView.backgroundColor = .gray
+        imageView.image = UIImage(named: "placeholder")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }
 
     private func makeTitleLabel() -> UILabel {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15.0)
+        label.font = UIFont.systemFont(ofSize: 16.0)
         label.textColor = .darkText
+        label.numberOfLines = 1
         return label
     }
 
@@ -114,14 +108,12 @@ final class VenueViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 11.0)
         label.textColor = .darkText
+        label.numberOfLines = 0
         return label
     }
 }
 
 private enum Constants {
-
-    // MARK: - Instance Properties
-
     static let imageViewSize: CGSize = .init(width: 200, height: 200)
     static let viewsEdgeInsets: UIEdgeInsets = .init(top: 8.0, left: 8.0, bottom: 8.0, right: 8.0)
 }

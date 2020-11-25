@@ -1,9 +1,6 @@
 import Foundation
 
 struct VenueDetails: Decodable {
-
-    // MARK: - Nested Types
-
     struct BestPhoto: Decodable {
         let prefix: String
         let suffix: String
@@ -16,8 +13,6 @@ struct VenueDetails: Decodable {
     struct Likes: Decodable {
         let summary: String
     }
-
-    // MARK: - Instance Properties
 
     let id: String
     let name: String

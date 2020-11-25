@@ -3,12 +3,9 @@ import RxSwift
 import RxCocoa
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
     var navigationController: UINavigationController?
     let bag = DisposeBag()
-    
-    // MARK: - Instance Methods
 
     func scene(
         _ scene: UIScene,
@@ -38,7 +35,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension Reactive where Base: UIViewController {
     func alert(animated: Bool) -> Binder<Error> {
         return .init(base) { controller, value in
-            let alertController = UIAlertController(title: "Error", message: "\(value)", preferredStyle: .alert)
+            let alertController = UIAlertController(
+                title: "Sorry, some error occured 😑",
+                message: "Feel free to blame the poor developer",
+                preferredStyle: .alert
+            )
             alertController.addAction(UIAlertAction(title: "OK", style: .default))
             controller.present(
                 alertController,

@@ -1,13 +1,9 @@
-import UIKit
 import MapKit
 import SnapKit
 import RxSwift
 import RxCocoa
 
 final class MapViewController: UIViewController {
-
-    // MARK: - Nested Types
-
     struct Env {
         var mapService: MapService
     }
@@ -20,8 +16,6 @@ final class MapViewController: UIViewController {
         return result
     }
 
-    // MARK: - Instance Properties
-
     var idCast: Observable<String> { idNode.asObservable() }
 
     fileprivate lazy var mapView: MKMapView = .init()
@@ -30,8 +24,6 @@ final class MapViewController: UIViewController {
     private let idNode = PublishSubject<String>()
     private let bag = DisposeBag()
     private var env: Env?
-
-    // MARK: - Instance Methods
 
     override func loadView() {
         view = mapView
@@ -112,19 +104,17 @@ extension MapViewController: CLLocationManagerDelegate {
             .map(zoom(to:))
     }
 
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        env?.mapService.sendError(error)
-    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) { }
 }
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !annotation.isKind(of: MKUserLocation.self) else { return nil }
-
         return mapView.dequeueReusableAnnotationView(withIdentifier: VenueAnnotationView.reuseIdentifier)
     }
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        guard mapView.camera.altitude < 200000 else { return }
         env?.mapService.regionSink(.init(region: mapView.region))
     }
 
@@ -136,7 +126,7 @@ extension MapViewController: MKMapViewDelegate {
     }
 }
 
-extension MapService.Region {
+private extension MapService.Region {
     init(region: MKCoordinateRegion) {
         self.point = .init(latitude: region.center.latitude, longitude: region.center.longitude)
         self.radius = CLLocation()
@@ -144,17 +134,6 @@ extension MapService.Region {
     }
 }
 
-class Annotation: NSObject, MKAnnotation {
-    let venue: Venue
-
-    init(venue: Venue) {
-        self.venue = venue
-        super.init()
-    }
-
-    var coordinate: CLLocationCoordinate2D {
-        .init(latitude: venue.location.latitude, longitude: venue.location.longitude)
-    }
-
-    var title: String? { venue.name }
+private extension CLLocationCoordinate2D {
+    static let zero: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
 }
