@@ -21,6 +21,11 @@ struct VenueDetails: Decodable {
         let formattedAddress: String
     }
 
+    struct BestPhoto: Decodable {
+        var prefix: String
+        var suffix: String
+    }
+
     struct Likes: Decodable {
         let summary: String
     }
@@ -35,4 +40,5 @@ struct VenueDetails: Decodable {
     let rating: Double
     let ratingColor: String
     let description: String
+    let bestPhoto: BestPhoto
 }

@@ -27,9 +27,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .map(VenueViewController.make(env:))
             .bind(to: navigationViewController.rx.push(animated: true))
             .disposed(by: bag)
+        linker.errorNode
+            .bind(to: navigationViewController.rx.alert(animated: true))
+            .disposed(by: bag)
 
         window?.rootViewController = navigationViewController
         window?.makeKeyAndVisible()
+    }
+}
+extension Reactive where Base: UIViewController {
+    func alert(animated: Bool) -> Binder<Error> {
+        return .init(base) { controller, value in
+            let alertController = UIAlertController(title: "Error", message: "\(value)", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            controller.present(
+                alertController,
+                animated: animated,
+                completion: nil
+            )
+        }
     }
 }
 

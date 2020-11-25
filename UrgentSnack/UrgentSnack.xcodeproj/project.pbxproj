@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B9EEC4C256A892E00CB78D7 /* GeolocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EEC4B256A892E00CB78D7 /* GeolocationService.swift */; };
 		0B9EEC63256AA33D00CB78D7 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EEC62256AA33D00CB78D7 /* MapService.swift */; };
 		0B9EEC6D256AB19E00CB78D7 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EEC6C256AB19E00CB78D7 /* Venue.swift */; };
 		0B9EEC6E256AB19E00CB78D7 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9EEC6C256AB19E00CB78D7 /* Venue.swift */; };
@@ -32,7 +31,6 @@
 		0BD79E6F256EB6350023E664 /* Linker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD79E6E256EB6350023E664 /* Linker.swift */; };
 		0BD79E77256EB9AB0023E664 /* VenueAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD79E76256EB9AB0023E664 /* VenueAnnotationView.swift */; };
 		0BD80280256D25D2005AC7AB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD8027F256D25D2005AC7AB /* MapKit.framework */; };
-		0BD80282256D2A46005AC7AB /* VenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD80281256D2A46005AC7AB /* VenueService.swift */; };
 		0BE1EE4B25695CF400951A92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE4A25695CF400951A92 /* AppDelegate.swift */; };
 		0BE1EE4D25695CF400951A92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE1EE4C25695CF400951A92 /* SceneDelegate.swift */; };
 		0BE1EE5425695CF700951A92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BE1EE5325695CF700951A92 /* Assets.xcassets */; };
@@ -61,7 +59,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B9EEC4B256A892E00CB78D7 /* GeolocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationService.swift; sourceTree = "<group>"; };
 		0B9EEC62256AA33D00CB78D7 /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		0B9EEC6C256AB19E00CB78D7 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		0B9EEC73256AB1F400CB78D7 /* VenueDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetails.swift; sourceTree = "<group>"; };
@@ -78,7 +75,6 @@
 		0BD79E6E256EB6350023E664 /* Linker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Linker.swift; sourceTree = "<group>"; };
 		0BD79E76256EB9AB0023E664 /* VenueAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueAnnotationView.swift; sourceTree = "<group>"; };
 		0BD8027F256D25D2005AC7AB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		0BD80281256D2A46005AC7AB /* VenueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueService.swift; sourceTree = "<group>"; };
 		0BE1EE4725695CF400951A92 /* UrgentSnack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrgentSnack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE1EE4A25695CF400951A92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BE1EE4C25695CF400951A92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,8 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				0B9EEC62256AA33D00CB78D7 /* MapService.swift */,
-				0B9EEC4B256A892E00CB78D7 /* GeolocationService.swift */,
-				0BD80281256D2A46005AC7AB /* VenueService.swift */,
 				0BD79DA0256E4D950023E664 /* APIService.swift */,
 				0BD79E69256E756C0023E664 /* VenueDetailsService.swift */,
 				0BD79E6E256EB6350023E664 /* Linker.swift */,
@@ -441,9 +435,7 @@
 			files = (
 				0BD79DA1256E4D950023E664 /* APIService.swift in Sources */,
 				0BD79E6F256EB6350023E664 /* Linker.swift in Sources */,
-				0BD80282256D2A46005AC7AB /* VenueService.swift in Sources */,
 				0BD79D6C256E4B410023E664 /* FourSquareRequest.swift in Sources */,
-				0B9EEC4C256A892E00CB78D7 /* GeolocationService.swift in Sources */,
 				0B9EEC63256AA33D00CB78D7 /* MapService.swift in Sources */,
 				0B9EEC6D256AB19E00CB78D7 /* Venue.swift in Sources */,
 				0BE1EE4B25695CF400951A92 /* AppDelegate.swift in Sources */,

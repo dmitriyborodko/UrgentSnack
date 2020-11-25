@@ -28,5 +28,4 @@ class APIService {
             .flatMap(env.fetch)
             .map(request.parse(data:))
     }
-
 }

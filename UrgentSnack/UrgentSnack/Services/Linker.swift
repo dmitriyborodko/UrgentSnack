@@ -2,8 +2,9 @@ import Foundation
 import RxSwift
 
 struct Linker {
-    var apiService: APIService
-    var customer: SerialDispatchQueueScheduler
+    let apiService: APIService
+    let customer: SerialDispatchQueueScheduler
+    let errorNode = PublishSubject<Error>()
 
     init() throws {
         let urlSession = URLSession.shared
@@ -11,7 +12,7 @@ struct Linker {
             env: .init(
                 context: .init(
                     clientId: .init(name: "client_id", value: "QUPZTW4W2ZDT3JTVFAXWFVDCTIYYKQPMNNIRRPLMV2V5ZM2U"),
-                    baseURL: URL(string: "https://api.foursquare.com/v2/venues/search")
+                    baseURL: URL(string: "https://api.foursquare.com/v2")
                         .restoreNil { throw "baseUrl invalid".mayDay },
                     clientSecret: .init(
                         name: "client_secret",
@@ -32,10 +33,7 @@ struct Linker {
                     loadVenues: apiService.load(request:),
                     serializer: .init(qos: .userInitiated),
                     customer: customer,
-                    handleError: { error in
-                        print(error)
-                        print()
-                    }
+                    sendError: errorNode.onNext
                 )
             )
         )
@@ -46,9 +44,10 @@ struct Linker {
             detailsService: .init(
                 env: .init(
                     loadVenueDetails: apiService.load(request:),
+                    loadBestPhoto: apiService.load(request:),
                     customer: customer,
                     id: id,
-                    handleError: { print($0) }
+                    sendError: errorNode.onNext
                 )
             )
         )

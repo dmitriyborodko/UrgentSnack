@@ -8,27 +8,41 @@ class VenueDetailsService {
 
     struct Env {
         var loadVenueDetails: (VenueDetailsRequest) -> Observable<VenueDetailsRequest.Output>
+        var loadBestPhoto: (BestPhotoRequest) -> Observable<BestPhotoRequest.Output>
         var customer: SerialDispatchQueueScheduler
         var id: String
-        var handleError: (Error) -> Void
+        var sendError: (Error) -> Void
     }
 
     // MARK: - Instance Properties
 
     private let env: Env
+    private let venueDetailsNode = PublishSubject<VenueDetails>()
 
     // MARK: - Initializers
 
     init(env: Env) { self.env = env }
 
     // MARK: - Instance Methods
-
-    func updateCast() -> Observable<VenueDetails> {
+    func activate() -> Disposable {
         Observable.of(env.id)
             .map(VenueDetailsRequest.init(id:))
             .flatMap(env.loadVenueDetails)
-            .do(onError: env.handleError)
+            .do(onError: env.sendError)
             .catchError { _ in .empty() }
+            .subscribe(onNext: venueDetailsNode.onNext(_:))
+    }
+
+    func updateCast() -> Observable<String> {
+        venueDetailsNode
+            .map { $0.description }
             .observeOn(env.customer)
+    }
+
+    func avatarCast() -> Observable<UIImage> {
+        venueDetailsNode
+            .map { BestPhotoRequest.init(photo: $0.bestPhoto) }
+            .flatMap(env.loadBestPhoto)
+            .catchError { _ in .empty() }
     }
 }

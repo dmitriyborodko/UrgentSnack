@@ -13,13 +13,16 @@ struct VenueDetailsRequest: FourSquareRequest {
     // MARK: - Instance Methods
 
     func prepare(context: FourSquareContext) throws -> URLRequest {
-        try URLComponents(url: context.baseURL, resolvingAgainstBaseURL: false)
+        try context.baseURL
+            .appendingPathComponent("venues")
+            .replace { URLComponents(url: $0, resolvingAgainstBaseURL: false) }
             .restoreNil { throw "incorrect base url".mayDay }
             .mutate { components in
                 components.queryItems = [
                     context.clientId,
                     context.clientSecret,
-                    .init(name: "id", value: "\(id)")
+                    .init(name: "id", value: "\(id)"),
+                    .init(name: "v", value: "20201125"),
                 ]
             }
             .url

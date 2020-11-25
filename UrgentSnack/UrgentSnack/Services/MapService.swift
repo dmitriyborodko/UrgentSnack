@@ -10,7 +10,7 @@ class MapService {
         var loadVenues: (VenueListRequest) -> Observable<VenueListRequest.Output>
         var serializer: SerialDispatchQueueScheduler
         var customer: SerialDispatchQueueScheduler
-        var handleError: (Error) -> Void
+        var sendError: (Error) -> Void
     }
 
     struct Point: Equatable {
@@ -25,6 +25,9 @@ class MapService {
 
     // MARK: - Instance Properties
 
+    var regionSink: (Region) -> Void { regionNode.onNext }
+    var sendError: (Error) -> Void { env.sendError }
+
     private let env: Env
     private let regionNode: PublishSubject<Region> = .init()
     private var venues: Set<Venue> = .init()
@@ -34,7 +37,6 @@ class MapService {
     init(env: Env) { self.env = env }
 
     // MARK: - Instance Methods
-    var regionSink: (Region) -> Void { regionNode.onNext }
 
     func changeRegion(latitude: Double, longitude: Double, radius: Double) {
         regionNode
@@ -56,7 +58,7 @@ class MapService {
         regionNode
             .map(VenueListRequest.init(region:))
             .flatMap { self.env.loadVenues($0)
-                .do(onError: self.env.handleError)
+                .do(onError: self.env.sendError)
                 .catchError { _ in .empty() }
 
             }

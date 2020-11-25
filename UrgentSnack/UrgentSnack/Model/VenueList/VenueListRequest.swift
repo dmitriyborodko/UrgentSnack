@@ -1,4 +1,22 @@
 import Foundation
+import UIKit
+
+struct BestPhotoRequest: FourSquareRequest {
+    var photo: VenueDetails.BestPhoto
+
+    func prepare(context: FourSquareContext) throws -> URLRequest {
+        try URL(string: photo.prefix)
+            .restoreNil { throw "incorrect photo prefix \(photo.prefix)".mayDay }
+            .appendingPathComponent(photo.suffix)
+            .replace { URLRequest(url: $0) }
+    }
+
+    func parse(data: Data) throws -> UIImage {
+        try UIImage(data: data)
+            .restoreNil { throw "invalid image data at \(photo.prefix+photo.suffix)".mayDay }
+    }
+
+}
 
 struct VenueListRequest: FourSquareRequest {
 
@@ -15,7 +33,9 @@ struct VenueListRequest: FourSquareRequest {
     // MARK: - Instance Methods
 
     func prepare(context: FourSquareContext) throws -> URLRequest {
-        try URLComponents(url: context.baseURL, resolvingAgainstBaseURL: false)
+        try context.baseURL
+            .appendingPathComponent("venues/search")
+            .replace { URLComponents(url: $0, resolvingAgainstBaseURL: false) }
             .restoreNil { throw "incorrect base url".mayDay }
             .mutate { components in
                 components.queryItems = [

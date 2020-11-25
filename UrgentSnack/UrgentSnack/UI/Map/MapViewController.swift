@@ -26,8 +26,6 @@ final class MapViewController: UIViewController {
 
     fileprivate lazy var mapView: MKMapView = .init()
 
-    private lazy var geolocationService: GeolocationService = DefaultGeolocationService()
-
     private let locationManager = CLLocationManager()
     private let idNode = PublishSubject<String>()
     private let bag = DisposeBag()
@@ -37,12 +35,10 @@ final class MapViewController: UIViewController {
 
     override func loadView() {
         view = mapView
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
         navigationController?.setNavigationBarHidden(true, animated: false)
+
+        locationManager.delegate = self
 
         mapView.register(
             VenueAnnotationView.self,
@@ -51,27 +47,42 @@ final class MapViewController: UIViewController {
         mapView.showsUserLocation = true
         mapView.delegate = self
 
-        env?.mapService.clearCast()
-            .bind(to: rx.clear)
-            .disposed(by: bag)
-        env?.mapService.insertCast()
-            .bind(to: rx.insertVenues)
-            .disposed(by: bag)
+        env?.mapService.clearCast().bind(to: rx.clear).disposed(by: bag)
+        env?.mapService.insertCast().bind(to: rx.insertVenues).disposed(by: bag)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-//        authorizeGeolocation()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
-    private func makeZoomWithCamera(){
-        let newCamera: MKMapCamera = MKMapCamera(
-            lookingAtCenter: mapView.userLocation.coordinate,
-            fromEyeCoordinate: mapView.userLocation.coordinate,
-            eyeAltitude: 10
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        authorizeGeolocation()
+    }
+
+    private func zoom(to coordinate: CLLocationCoordinate2D) {
+        let newCamera = MKMapCamera(
+            lookingAtCenter: coordinate,
+            fromEyeCoordinate: coordinate,
+            eyeAltitude: 1000
         )
         mapView.setCamera(newCamera, animated: true)
+    }
+
+    private func authorizeGeolocation() {
+        switch locationManager.authorizationStatus {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+
+        case .authorizedAlways, .authorizedWhenInUse:
+            zoom(to: mapView.userLocation.coordinate)
+
+        default:
+            break
+        }
     }
 }
 
@@ -89,8 +100,21 @@ private extension Reactive where Base: MapViewController {
         }
     }
 }
-extension MapViewController: CLLocationManagerDelegate {
 
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        manager.requestLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locations.first
+            .map(\.coordinate)
+            .map(zoom(to:))
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        env?.mapService.sendError(error)
+    }
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -102,10 +126,6 @@ extension MapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         env?.mapService.regionSink(.init(region: mapView.region))
-    }
-
-    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        makeZoomWithCamera()
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -137,8 +157,4 @@ class Annotation: NSObject, MKAnnotation {
     }
 
     var title: String? { venue.name }
-}
-
-private extension Double {
-    func square() -> Self { self * self }
 }
