@@ -18,7 +18,7 @@ final class VenueViewController: UIViewController {
     private lazy var titleLabel: UILabel = makeTitleLabel()
     private lazy var likesLabel: UILabel = makeLikesLabel()
     private lazy var ratingLabel: UILabel = makeRatingLabel()
-    private lazy var descriptionLabel: UILabel = makeDescriptionLabel()
+    private lazy var descriptionTextField: UITextView = makeDescriptionTextField()
 
     private var env: Env?
     private let bag = DisposeBag()
@@ -43,7 +43,7 @@ final class VenueViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(likesLabel)
         view.addSubview(ratingLabel)
-        view.addSubview(descriptionLabel)
+        view.addSubview(descriptionTextField)
 
         imageView.snp.makeConstraints { make in
             make.left.top.equalTo(view.safeAreaLayoutGuide).inset(Constants.viewsEdgeInsets)
@@ -63,16 +63,18 @@ final class VenueViewController: UIViewController {
             make.top.equalTo(likesLabel.snp.bottom).offset(Constants.viewsEdgeInsets.top)
             make.right.equalTo(view.safeAreaLayoutGuide).inset(Constants.viewsEdgeInsets)
         }
-        descriptionLabel.snp.makeConstraints { make in
-            make.left.right.bottom.equalTo(view.safeAreaLayoutGuide).inset(Constants.viewsEdgeInsets)
+        descriptionTextField.snp.makeConstraints { make in
+            make.left.right.equalTo(view.safeAreaLayoutGuide).inset(Constants.viewsEdgeInsets)
             make.top.equalTo(imageView.snp.bottom).offset(Constants.viewsEdgeInsets.top)
+            make.bottom.greaterThanOrEqualTo(view.safeAreaLayoutGuide).inset(Constants.viewsEdgeInsets)
+                .priority(.high)
         }
 
         env?.detailsService.updateCast().bind(to: titleLabel.rx.text).disposed(by: bag)
         env?.detailsService.avatarCast().bind(to: imageView.rx.image).disposed(by: bag)
         env?.detailsService.likesCast().bind(to: likesLabel.rx.text).disposed(by: bag)
         env?.detailsService.ratingCast().bind(to: ratingLabel.rx.text).disposed(by: bag)
-        env?.detailsService.descriptionCast().bind(to: descriptionLabel.rx.text).disposed(by: bag)
+        env?.detailsService.descriptionCast().bind(to: descriptionTextField.rx.text).disposed(by: bag)
     }
 
     private func makeImageView() -> UIImageView {
@@ -104,11 +106,10 @@ final class VenueViewController: UIViewController {
         return label
     }
 
-    private func makeDescriptionLabel() -> UILabel {
-        let label = UILabel()
+    private func makeDescriptionTextField() -> UITextView {
+        let label = UITextView()
         label.font = UIFont.systemFont(ofSize: 11.0)
         label.textColor = .darkText
-        label.numberOfLines = 0
         return label
     }
 }
