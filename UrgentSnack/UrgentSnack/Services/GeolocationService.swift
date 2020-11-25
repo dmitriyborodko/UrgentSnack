@@ -30,6 +30,12 @@ class DefaultGeolocationService: NSObject, GeolocationService {
 
     // MARK: - Instance Methods
 
+    private func authorizeGeolocation() {
+        if case .notDetermined = locationManager.authorizationStatus {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+
     func authorize() -> Observable<Void> {
         return Observable<Void>.just(())
     }

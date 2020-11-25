@@ -8,7 +8,7 @@ class APIService {
 
     struct Env {
         var context: FourSquareContext
-        var session: URLSession
+        var fetch: (URLRequest) -> Observable<Data>
         var worker: ConcurrentDispatchQueueScheduler
     }
 
@@ -25,7 +25,7 @@ class APIService {
     func load<T: FourSquareRequest>(request: T) -> Observable<T.Output> {
         Observable
             .deferred { try Observable.of(request.prepare(context: self.env.context)) }
-            .flatMap(env.session.rx.data(request:))
+            .flatMap(env.fetch)
             .map(request.parse(data:))
     }
 

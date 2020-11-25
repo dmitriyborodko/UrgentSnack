@@ -21,8 +21,7 @@ struct VenueListRequest: FourSquareRequest {
                 components.queryItems = [
                     context.clientId,
                     context.clientSecret,
-                    .init(name: "latitude", value: "\(latitude)"),
-                    .init(name: "longitude", value: "\(longitude)"),
+                    .init(name: "ll", value: "\(latitude),\(longitude)"),
                     .init(name: "radius", value: "\(radius)"),
                 ]
             }
