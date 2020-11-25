@@ -1,31 +1,37 @@
 import Foundation
 import CoreLocation
 
-struct Venue {
+struct Venue: Decodable {
+
+    // MARK: - Nested Types
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case location
+    }
+
+    struct Location: Decodable {
+        private enum CodingKeys: String, CodingKey {
+            case latitude = "lat"
+            case longitude = "lng"
+        }
+
+        let latitude: Double
+        let longitude: Double
+    }
 
     // MARK: - Instance Properties
     
     var id: String
     var name: String
-    var location: CLLocation
-    var details: VenueDetails?
+    var location: Location
+}
+
+extension Venue: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool { lhs.id == rhs.id }
 }
 
 extension Venue: Hashable {
-
-    // MARK: - Type Methods
-
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.id == rhs.id
-    }
-
-    // MARK: - Instance Properties
-
-    var hashValue: Int { id.hash }
-
-    // MARK: - Instance Methods
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
+    func hash(into hasher: inout Hasher) { hasher.combine(id) }
 }

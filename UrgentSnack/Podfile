@@ -8,4 +8,5 @@ target 'UrgentSnack' do
   pod 'RxCocoa'
   pod 'RxCoreLocation'
   pod 'RxMKMapView'
+  pod 'SnapKit'
 end

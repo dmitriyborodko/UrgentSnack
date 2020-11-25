@@ -4,7 +4,7 @@ import RxSwift
 
 protocol GeolocationService {
     func authorize() -> Observable<Void>
-//    func getUserLocation() -> Observable<CLLocation>
+    func getUserLocation() -> Observable<CLLocation>
 }
 
 enum GeolocationError: Error {
@@ -34,9 +34,9 @@ class DefaultGeolocationService: NSObject, GeolocationService {
         return Observable<Void>.just(())
     }
 
-//    func getUserLocation() -> Observable<CLLocation> {
-//        return Observable<Void>
-//    }
+    func getUserLocation() -> Observable<CLLocation> {
+        return Observable<CLLocation>.just(CLLocation())
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
