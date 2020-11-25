@@ -4,6 +4,7 @@ struct FourSquareContext {
     var clientId: URLQueryItem
     var baseURL: URL
     var clientSecret: URLQueryItem
+    var version: URLQueryItem
 }
 
 protocol FourSquareRequest {

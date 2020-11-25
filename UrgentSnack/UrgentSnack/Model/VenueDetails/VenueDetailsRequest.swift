@@ -14,7 +14,7 @@ struct VenueDetailsRequest: FourSquareRequest {
                 components.queryItems = [
                     context.clientId,
                     context.clientSecret,
-                    .init(name: "v", value: "20201125"),
+                    context.version,
                 ]
             }
             .url

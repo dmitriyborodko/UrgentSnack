@@ -17,7 +17,8 @@ struct Linker {
                     clientSecret: .init(
                         name: "client_secret",
                         value: "OWPSD1WADXVX5L1BPMGYRE3P025SIKCFV1XJOTGV22GDB5V5"
-                    )
+                    ),
+                    version: .init(name: "v", value: "20201125")
                 ),
                 fetch: urlSession.rx.data(request:),
                 worker: .init(qos: .default)
