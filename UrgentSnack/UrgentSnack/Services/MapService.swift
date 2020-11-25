@@ -20,7 +20,7 @@ class MapService {
 
     struct Region {
         var point: Point
-        var deltas: Point
+        var radius: Double
     }
 
     // MARK: - Instance Properties
@@ -36,17 +36,17 @@ class MapService {
     // MARK: - Instance Methods
     var regionSink: (Region) -> Void { regionNode.onNext }
 
-    func changeRegion(latitude: Double, longitude: Double, latitudeDelta: Double, longitudeDelta: Double) {
-        regionNode.onNext(.init(
-            point: .init(latitude: latitude, longitude: longitude),
-            deltas: .init(latitude: latitudeDelta, longitude: longitudeDelta)
-        ))
+    func changeRegion(latitude: Double, longitude: Double, radius: Double) {
+        regionNode
+            .onNext(.init(point: .init(latitude: latitude, longitude: longitude), radius: radius))
     }
 
     func clearCast() -> Observable<Void> {
         regionNode
             .observeOn(env.serializer)
-            .distinctUntilChanged { $0.deltas == $1.deltas }
+            .distinctUntilChanged { one, two in
+                abs(one.radius - two.radius) < 1000
+            }
             .do(onNext: { _ in self.clear() })
             .map { _ in }
             .observeOn(env.customer)
@@ -86,6 +86,6 @@ extension VenueListRequest {
     init(region: MapService.Region) {
         self.latitude = region.point.latitude
         self.longitude = region.point.longitude
-        self.radius = (region.deltas.latitude.square() + region.deltas.longitude.square()).squareRoot()/2
+        self.radius = region.radius
     }
 }

@@ -22,13 +22,14 @@ final class MapViewController: UIViewController {
 
     // MARK: - Instance Properties
 
+    var idCast: Observable<String> { idNode.asObservable() }
+
     fileprivate lazy var mapView: MKMapView = .init()
 
     private lazy var geolocationService: GeolocationService = DefaultGeolocationService()
 
     private let locationManager = CLLocationManager()
     private let idNode = PublishSubject<String>()
-    var idCast: Observable<String> { idNode.asObservable() }
     private let bag = DisposeBag()
     private var env: Env?
 
@@ -42,8 +43,14 @@ final class MapViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.setNavigationBarHidden(true, animated: false)
+
+        mapView.register(
+            VenueAnnotationView.self,
+            forAnnotationViewWithReuseIdentifier: VenueAnnotationView.reuseIdentifier
+        )
         mapView.showsUserLocation = true
         mapView.delegate = self
+
         env?.mapService.clearCast()
             .bind(to: rx.clear)
             .disposed(by: bag)
@@ -58,23 +65,27 @@ final class MapViewController: UIViewController {
 //        authorizeGeolocation()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    private func makeZoomWithCamera(){
+        let newCamera: MKMapCamera = MKMapCamera(
+            lookingAtCenter: mapView.userLocation.coordinate,
+            fromEyeCoordinate: mapView.userLocation.coordinate,
+            eyeAltitude: 10
+        )
+        mapView.setCamera(newCamera, animated: true)
     }
-
 }
 
 private extension Reactive where Base: MapViewController {
     var clear: Binder<Void> {
-        .init(base) { this, _ in
-            this.mapView.removeAnnotations(this.mapView.annotations)
+        .init(base) { controller, _ in
+            controller.mapView.removeAnnotations(controller.mapView.annotations)
         }
     }
     var insertVenues: Binder<Set<Venue>> {
-        .init(base) { this, venues in
+        .init(base) { controller, venues in
             venues
                 .map(Annotation.init(venue:))
-                .forEach(this.mapView.addAnnotation(_:))
+                .forEach(controller.mapView.addAnnotation(_:))
         }
     }
 }
@@ -86,13 +97,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !annotation.isKind(of: MKUserLocation.self) else { return nil }
 
-        //create annotation view
-
-        return MKAnnotationView()
-    }
-
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        mapView.setCenter(userLocation.coordinate, animated: true)
+        return mapView.dequeueReusableAnnotationView(withIdentifier: VenueAnnotationView.reuseIdentifier)
     }
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
@@ -100,7 +105,7 @@ extension MapViewController: MKMapViewDelegate {
     }
 
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        env?.mapService.regionSink(.init(region: mapView.region))
+        makeZoomWithCamera()
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -114,7 +119,8 @@ extension MapViewController: MKMapViewDelegate {
 extension MapService.Region {
     init(region: MKCoordinateRegion) {
         self.point = .init(latitude: region.center.latitude, longitude: region.center.longitude)
-        self.deltas = .init(latitude: region.span.latitudeDelta, longitude: region.span.longitudeDelta)
+        self.radius = CLLocation()
+            .distance(from: CLLocation(latitude: region.span.latitudeDelta/2, longitude: region.span.longitudeDelta/2))
     }
 }
 
@@ -131,4 +137,8 @@ class Annotation: NSObject, MKAnnotation {
     }
 
     var title: String? { venue.name }
+}
+
+private extension Double {
+    func square() -> Self { self * self }
 }

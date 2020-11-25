@@ -4,27 +4,27 @@ import SnapKit
 final class VenueViewController: UIViewController {
 
     static func make(env: Env) -> VenueViewController {
-        let this = VenueViewController()
-        this.env = env
-        return this
+        let controller = VenueViewController()
+        controller.env = env
+        return controller
     }
     
     struct Env {
         var detailsService: VenueDetailsService
     }
+
     // MARK: - Instance Properties
 
     private let imageView: UIImageView = .init()
     private let titleLabel: UILabel = .init()
     private var env: Env?
-//    private let
 
     // MARK: - Initializers
 
     // MARK: - Instance Methods
 
     override func loadView() {
-        self.view = UIView()
+        self.view = UIView(frame: .zero)
 
         configureImageView()
         configureTitleLabel()
