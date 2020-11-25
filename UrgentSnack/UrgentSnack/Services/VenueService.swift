@@ -9,7 +9,7 @@ class DefaultVenueService: VenueService {
 
     // MARK: - Instance Methods
 
-    func fetchVenue(_ request: VenueRequest) -> Observable<VenueRequest.Output> {
+    func fetchVenue(_ request: VenueListRequest) -> Observable<VenueListRequest.Output> {
         guard var components = URLComponents(url: Constants.searchVenuesURL, resolvingAgainstBaseURL: false) else {
             return .just([])
         }

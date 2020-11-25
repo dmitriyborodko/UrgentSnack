@@ -4,7 +4,7 @@ import CoreLocation
 
 class MapService {
     struct Env {
-        var loadVenues: (VenueRequest) -> Observable<VenueRequest.Output>
+        var loadVenues: (VenueListRequest) -> Observable<VenueListRequest.Output>
         var serializer: SerialDispatchQueueScheduler
         var customer: SerialDispatchQueueScheduler
     }
@@ -49,7 +49,7 @@ class MapService {
 
     func insertCast() -> Observable<Set<Venue>> {
         regionNode
-            .map(VenueRequest.init(region:))
+            .map(VenueListRequest.init(region:))
             .flatMap(env.loadVenues)
             .observeOn(env.serializer)
             .map(insert(newVenues:))
@@ -67,7 +67,7 @@ class MapService {
     }
 }
 
-extension VenueRequest {
+extension VenueListRequest {
     init(region: MapService.Region) {
         self.latitude = region.point.latitude
         self.longitude = region.point.longitude
