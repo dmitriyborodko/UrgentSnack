@@ -2,14 +2,6 @@ PODS:
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxCoreLocation (1.5.0):
-    - RxCoreLocation/Core (= 1.5.0)
-  - RxCoreLocation/Core (1.5.0):
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
-  - RxMKMapView (5.0.0):
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
@@ -17,28 +9,22 @@ PODS:
 
 DEPENDENCIES:
   - RxCocoa
-  - RxCoreLocation
-  - RxMKMapView
   - RxSwift
   - SnapKit
 
 SPEC REPOS:
   trunk:
     - RxCocoa
-    - RxCoreLocation
-    - RxMKMapView
     - RxRelay
     - RxSwift
     - SnapKit
 
 SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxCoreLocation: 4789d980742b21c087062387f6758b456221fb2f
-  RxMKMapView: 7b19fc545887314851ea67b12193bc8c6004dcb5
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 89dd1d1bb5d2f76034c2f1619ff4731ad1bfaad3
+PODFILE CHECKSUM: c4f1d6da3f1002a1c88ab8ac82464d512898d6f0
 
 COCOAPODS: 1.8.4

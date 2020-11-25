@@ -6,7 +6,5 @@ target 'UrgentSnack' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'RxCoreLocation'
-  pod 'RxMKMapView'
   pod 'SnapKit'
 end
