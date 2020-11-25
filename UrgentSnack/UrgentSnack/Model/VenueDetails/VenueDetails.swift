@@ -4,26 +4,13 @@ struct VenueDetails: Decodable {
 
     // MARK: - Nested Types
 
-    struct Contact: Decodable {
-        let phone: String
-        let formattedPhone: String
-    }
-
-    struct Location: Decodable {
-        private enum CodingKeys: String, CodingKey {
-            case latitude = "lat"
-            case longitude = "lng"
-            case formattedAddress
-        }
-
-        let latitude: Double
-        let longitude: Double
-        let formattedAddress: String
-    }
-
     struct BestPhoto: Decodable {
-        var prefix: String
-        var suffix: String
+        let prefix: String
+        let suffix: String
+        let width: Int
+        let height: Int
+
+        var asString: String { "\(prefix + width.asString)x\(height.asString + suffix)" }
     }
 
     struct Likes: Decodable {
@@ -34,11 +21,12 @@ struct VenueDetails: Decodable {
 
     let id: String
     let name: String
-    let contact: Contact
-    let location: Location
-    let likes: Likes
-    let rating: Double
-    let ratingColor: String
-    let description: String
+    let likes: Likes?
+    let rating: Double?
+    let description: String?
     let bestPhoto: BestPhoto
+}
+
+private extension Int {
+    var asString: String { String(self) }
 }

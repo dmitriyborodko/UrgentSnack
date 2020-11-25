@@ -14,14 +14,13 @@ struct VenueDetailsRequest: FourSquareRequest {
 
     func prepare(context: FourSquareContext) throws -> URLRequest {
         try context.baseURL
-            .appendingPathComponent("venues")
+            .appendingPathComponent("venues/\(id)")
             .replace { URLComponents(url: $0, resolvingAgainstBaseURL: false) }
             .restoreNil { throw "incorrect base url".mayDay }
             .mutate { components in
                 components.queryItems = [
                     context.clientId,
                     context.clientSecret,
-                    .init(name: "id", value: "\(id)"),
                     .init(name: "v", value: "20201125"),
                 ]
             }
@@ -31,6 +30,7 @@ struct VenueDetailsRequest: FourSquareRequest {
     }
 
     func parse(data: Data) throws -> VenueDetails {
-        return try JSONDecoder().decode(VenueDetails.self, from: data)
+        return try JSONDecoder().decode(VenueDetailsResponse.self, from: data)
+            .response.venue
     }
 }

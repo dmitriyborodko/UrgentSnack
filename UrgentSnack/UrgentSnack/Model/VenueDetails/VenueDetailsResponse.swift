@@ -1,11 +1,11 @@
 import Foundation
 
-struct VenueListResponse: Decodable {
+struct VenueDetailsResponse: Decodable {
 
     // MARK: - Nested Types
-    
+
     struct Response: Decodable {
-        let venues: [Venue]
+        let venue: VenueDetails
     }
 
     // MARK: - Instance Properties

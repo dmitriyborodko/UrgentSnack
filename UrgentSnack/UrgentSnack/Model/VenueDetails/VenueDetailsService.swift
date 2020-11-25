@@ -33,9 +33,9 @@ class VenueDetailsService {
             .subscribe(onNext: venueDetailsNode.onNext(_:))
     }
 
-    func updateCast() -> Observable<String> {
+    func updateCast() -> Observable<String?> {
         venueDetailsNode
-            .map { $0.description }
+            .map { $0.name }
             .observeOn(env.customer)
     }
 
@@ -44,5 +44,23 @@ class VenueDetailsService {
             .map { BestPhotoRequest.init(photo: $0.bestPhoto) }
             .flatMap(env.loadBestPhoto)
             .catchError { _ in .empty() }
+    }
+
+    func likesCast() -> Observable<String?> {
+        venueDetailsNode
+            .map { $0.likes?.summary }
+            .observeOn(env.customer)
+    }
+
+    func ratingCast() -> Observable<String?> {
+        venueDetailsNode
+            .map { $0.rating.flatMap(String.init(describing:)) }
+            .observeOn(env.customer)
+    }
+
+    func descriptionCast() -> Observable<String?> {
+        venueDetailsNode
+            .map { $0.description }
+            .observeOn(env.customer)
     }
 }
